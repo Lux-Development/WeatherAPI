@@ -1,42 +1,65 @@
-# WeatherAPI 
- 
-This project was worked on for weeks, using a WeatherAPI for the results. The application is open source, and not packed into a installation file. The weather application returns a lot of data see below for more.
-
-## Preview
 ![weather-githu](https://github.com/joelb-services/WeatherAPI/assets/144958989/a9d6d3f5-e403-4aed-8137-da98cbc512de)
 
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [How It Works](#how-it-works)
+- [Weather Conditions](#weather-conditions)
+- [Getting Started](#getting-started)
 
-## Project Contains
-- Moon: Moonrise, Moonset, Moon Phase
-- Sun: Sunrise, Sunset
-- Cloud Strength
-- Humidity
-- Temperature & Feels Like Temperature
-- UV Scale
-- Visibility
-- Wind Speed
-- Wind Direction
+- ## Overview
 
-## Some cool features
-- Unit conversion: miles/km ~ °C/°F ~ mph/kph
-- Basic settings
-- Sound effects (Open sound & Click Sounds)
-- Daily update notificaitons (WIP)
-- Tooltips on hover, for most buttons/text boxes
-- Draggable UI
-- Lock to taskbar
+The WeatherAPI Weather Application is an open-source project designed to provide comprehensive weather information using the WeatherAPI. This application offers a wide range of weather data, including moon and sun details, cloud strength, humidity, temperature, UV scale, visibility, wind speed, and wind direction. With a user-friendly interface and useful features, it's a valuable tool for staying informed about weather conditions.
 
-## How it works?
-The API will return a temperature and condition, which we then group categorys and place them into string lists. Depending on the match we will then assing an icon to the weather condition.
+## Features
 
-### Submits a https request to the API (Provided by api.weatherapi.com, be sure to replace your api KEY if wanted.
+### Detailed Weather Information
+
+- **Moon Information**: Get moonrise, moonset, and moon phase details.
+
+- **Sun Information**: Access sunrise and sunset times.
+
+- **Cloud Strength**: View information about cloud cover.
+
+- **Humidity**: Check the current humidity level.
+
+- **Temperature**: Get the current temperature and feels-like temperature.
+
+- **UV Scale**: Monitor the UV index.
+
+- **Visibility**: Know the current visibility conditions.
+
+- **Wind Speed**: Get information about wind speed.
+
+- **Wind Direction**: Check the direction of the wind.
+
+### User-Friendly Features
+
+- **Unit Conversion**: Easily switch between miles/km, °C/°F, and mph/kph.
+
+- **Basic Settings**: Customize your preferences.
+
+- **Sound Effects**: Enjoy open and click sounds for a better user experience.
+
+- **Daily Update Notifications** (Work in Progress): Stay informed with daily weather updates.
+
+- **Tooltips**: Hover over buttons and text boxes for helpful tooltips.
+
+- **Draggable UI**: Arrange the user interface to your liking.
+
+- **Lock to Taskbar**: Keep the app readily accessible on your taskbar.
+
+## How It Works
+
+The WeatherAPI Weather Application makes HTTP requests to the WeatherAPI to retrieve weather data. Here's a simplified overview of the process:
+
+1. **HTTP Request**: The application sends an HTTPS request to the WeatherAPI, providing the location (e.g., city) and API key.
 
 ```js
-https://api.weatherapi.com/v1/astronomy.xml?key=d38681c27517404199e183249232406&q={CITY}
+https://api.weatherapi.com/v1/astronomy.xml?key=YOUR_API_KEY&q={CITY}
 ```
 
-### Then returns data from the API, example:
-
+2. **XML Return**: The WeatherAPI responds with XML data containing various weather-related information, including location details, astronomy data (e.g., sunrise and sunset times), and more.
 ```xml
 <root>
 <location>
@@ -46,8 +69,8 @@ https://api.weatherapi.com/v1/astronomy.xml?key=d38681c27517404199e183249232406&
 <lat>51.52</lat>
 <lon>-0.11</lon>
 <tz_id>Europe/London</tz_id>
-<localtime_epoch>1695432008</localtime_epoch>
-<localtime>2023-09-23 2:20</localtime>
+<localtime_epoch>1695509046</localtime_epoch>
+<localtime>2023-09-23 23:44</localtime>
 </location>
 <astronomy>
 <astro>
@@ -64,76 +87,42 @@ https://api.weatherapi.com/v1/astronomy.xml?key=d38681c27517404199e183249232406&
 </root>
 ```
 
-## Weather Conditions 
-```CSHARP
-            string[] Thunderstorm = { // All use thunderstorm.png
-                "Thunderstorm", 
-                "Thunderstorm with light rain", 
-                "Thunderstorm with rain", 
-                "Thunderstorm with heavy rain",
-                "Light thunderstorm",
-                "Heavy thunderstorm",
-                "Ragged thunderstorm",
-                "Thunderstorm with light drizzle",
-                "Thunderstorm with drizzle",
-                "Thunderstorm with heavy drizzle"
-            };
+## Weather Conditions
+The application categorizes weather conditions into various categories, each associated with specific weather icons. Here are some examples:
 
-            string[] Drizzle = { // All use drizzle.png
-                "Drizzle",
-                "Light intensity drizzle",
-                "Heavy intensity drizzle",
-                "light intensity drizzle rain",
-                "Drizzle rain",
-                "Heavy intensity drizzle rain",
-                "Shower rain and drizzle",
-                "Heavy shower rain and drizzle",
-                "Shower drizzle"
-            };
+Thunderstorm: 
+Thunderstorm, thunderstorm with rain, and more.
 
-            string[] Rain = { // All use rain.png OR rain_night.png
-                "Rain",
-                "Light rain",
-                "Moderate rain",
-                "Heavy intensity rain",
-                "Very heavy rain",
-                "Extreme rain",
-                "Freezing rain",
-                "Light intensity shower rain",
-                "Shower rain",
-                "Heavy intensity shower rain",
-                "Ragged shower rain"
-            };
+Drizzle: 
+Drizzle, light intensity drizzle, and more.
 
-            string[] Snow = { // All use snow.png
-                "Snow",
-                "Light snow",
-                "Heavy snow",
-                "Sleet",
-                "Light shower sleet",
-                "Shower sleet",
-                "Light rain and snow",
-                "Rain and snow",
-                "Light shower snow",
-                "Shower snow",
-                "Heavy shower snow"
-            };
+Rain: 
+Rain, light rain, heavy intensity rain, and more.
 
-            string[] Atmosphere = {
-                "Mist",  // Mist.png
-                "Smoke", // Mist.png
-                "Haze",  // Haze.png
-                "Fog"   // fog.png
-            };
+Snow: 
+Snow, light snow, sleet, and more.
 
-            string[] Clear = {
-                "Clear", // Clear.png OR clear_night.png
-                "Sunny"
-            };
+Atmosphere: 
+Mist, smoke, haze, and fog.
 
-            string[] Clouds = {
-                "Clouds", // clouds.png
-                "Overcast", // clouds.png
-                "Partly cloudy" // Partially_cloudy.png (DAYONLY)
-            };
-```
+Clear: 
+Clear and sunny conditions.
+
+Clouds: 
+Cloudy and partly cloudy conditions.
+
+## Getting Started
+To use the WeatherAPI Weather Application, follow these steps:
+
+- Clone or Download: Clone this repository or download the source code to your local machine.
+- Build the Project: Use Visual Studio 2022 or your preferred C# development environment to build the project.
+
+### Add SiticoneUI Reference:
+- Open your project in Visual Studio 2022.
+- Right-click on "References" in the Solution Explorer and choose "Add Reference..."
+- Click the "Browse" button and locate the downloaded SiticoneUI DLL.
+- Click "Add" and then "OK" to add the SiticoneUI reference to your project.
+  
+- Replace YOUR_API_KEY in the API request URL with your (weatherapi.com)[weatherapi.com] API key. (Or use the one available if you are just exploring)
+- Build and run the application.
+- Explore and enjoy the features and weather information it provides.
