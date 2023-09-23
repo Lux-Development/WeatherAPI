@@ -115,14 +115,14 @@ Cloudy and partly cloudy conditions.
 To use the WeatherAPI Weather Application, follow these steps:
 
 - Clone or Download: Clone this repository or download the source code to your local machine.
-- Build the Project: Use Visual Studio 2022 or your preferred C# development environment to build the project.
 
-### Add SiticoneUI Reference:
+Add SiticoneUI Reference:
 - Open your project in Visual Studio 2022.
 - Right-click on "References" in the Solution Explorer and choose "Add Reference..."
 - Click the "Browse" button and locate the downloaded SiticoneUI DLL.
 - Click "Add" and then "OK" to add the SiticoneUI reference to your project.
-  
+
+Config & Build:
 - Replace YOUR_API_KEY in the API request URL with your (weatherapi.com)[weatherapi.com] API key. (Or use the one available if you are just exploring)
-- Build and run the application.
+- Build the Project: Use Visual Studio 2022 or your preferred C# development environment to build the project.
 - Explore and enjoy the features and weather information it provides.
