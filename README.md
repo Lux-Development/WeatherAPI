@@ -123,6 +123,6 @@ Add SiticoneUI Reference:
 - Click "Add" and then "OK" to add the SiticoneUI reference to your project.
 
 Config & Build:
-- Replace YOUR_API_KEY in the API request URL with your (weatherapi.com)[weatherapi.com] API key. (Or use the one available if you are just exploring)
+- Replace YOUR_API_KEY in the API request URL with your [weatherapi](weatherapi.com) API key. (Or use the one available if you are just exploring)
 - Build the Project: Use Visual Studio 2022 or your preferred C# development environment to build the project.
 - Explore and enjoy the features and weather information it provides.
