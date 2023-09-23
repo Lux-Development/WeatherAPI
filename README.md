@@ -11,18 +11,58 @@ This project was worked on for weeks, using a WeatherAPI for the results. The ap
 - Sun: Sunrise, Sunset
 - Cloud Strength
 - Humidity
-- Temperature
+- Temperature & Feels Like Temperature
 - UV Scale
 - Visibility
 - Wind Speed
+- Wind Direction
 
 ## Some cool features
 - Unit conversion: miles/km ~ °C/°F ~ mph/kph
 - Basic settings
-- Sound effects
+- Sound effects (Open sound & Click Sounds)
+- Daily update notificaitons (WIP)
+- Tooltips on hover, for most buttons/text boxes
+- Draggable UI
+- Lock to taskbar
 
 ## How it works?
 The API will return a temperature and condition, which we then group categorys and place them into string lists. Depending on the match we will then assing an icon to the weather condition.
+
+### Submits a https request to the API (Provided by api.weatherapi.com, be sure to replace your api KEY if wanted.
+
+```js
+https://api.weatherapi.com/v1/astronomy.xml?key=d38681c27517404199e183249232406&q={CITY}
+```
+
+### Then returns data from the API, example:
+
+```xml
+<root>
+<location>
+<name>London</name>
+<region>City of London, Greater London</region>
+<country>United Kingdom</country>
+<lat>51.52</lat>
+<lon>-0.11</lon>
+<tz_id>Europe/London</tz_id>
+<localtime_epoch>1695432008</localtime_epoch>
+<localtime>2023-09-23 2:20</localtime>
+</location>
+<astronomy>
+<astro>
+<sunrise>06:47 AM</sunrise>
+<sunset>06:57 PM</sunset>
+<moonrise>04:31 PM</moonrise>
+<moonset>11:11 PM</moonset>
+<moon_phase>Waxing Gibbous</moon_phase>
+<moon_illumination>52</moon_illumination>
+<is_moon_up>0</is_moon_up>
+<is_sun_up>0</is_sun_up>
+</astro>
+</astronomy>
+</root>
+```
 
 ## Weather Conditions 
 ```CSHARP
